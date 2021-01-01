@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <myheader></myheader>
-    <img src="./assets/logo.png">
     <router-view/>
-    <button class="btn btn-primary">test</button>
   </div>
 </template>
 
@@ -24,7 +22,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>
