@@ -3,6 +3,7 @@ import BootstrapVue from 'bootstrap-vue'
 import Router from 'vue-router'
 import home from '@/components/home'
 import add from '@/components/add'
+import edit from '@/components/edit'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
@@ -21,6 +22,11 @@ export default new Router({
       path: '/add',
       name: 'add',
       component: add
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: edit
     }
   ]
 })
