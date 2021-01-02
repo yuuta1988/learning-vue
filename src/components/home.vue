@@ -15,42 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>田中 一郎</td>
-          <td>男</td>
-          <td>東京都</td>
-          <td>test1@gmail.com</td>
+        <tr v-for="(user,index) in users" v-bind:key="user.id">
+          <td>{{ user.id }}</td>
+          <td>{{ user.sex }}</td>
+          <td>{{ user.place }}</td>
+          <td>{{ user.email }}</td>
           <td>
             <div class="bd-example">
-              <button type="button" class="btn btn-primary">編集</button>
-              <button type="button" class="btn btn-danger">削除</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>田中 二郎</td>
-          <td>男</td>
-          <td>東京都</td>
-          <td>test2@gmail.com</td>
-          <td>
-            <div class="bd-example">
-              <button type="button" class="btn btn-primary">編集</button>
-              <button type="button" class="btn btn-danger">削除</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>山田 花子</td>
-          <td>女</td>
-          <td>鳥取県</td>
-          <td>test3@gmail.com</td>
-          <td>
-            <div class="bd-example">
-              <button type="button" class="btn btn-primary">編集</button>
-              <button type="button" class="btn btn-danger">削除</button>
+              <router-link class="btn btn-primary px-3" :to="{ name: 'edit', params: { id: user.id } }">編集</router-link>
+              <button @click="deleteUser(index)" type="button" class="btn btn-danger">削除</button>
             </div>
           </td>
         </tr>
@@ -59,6 +32,43 @@
   </div>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
+<script>
+  const users = [
+    {
+      'id': 1,
+      'name': '田中 一郎',
+      'sex': '男',
+      'place': '東京都',
+      'email': 'test1@gmail.com'
+    },
+    {
+      'id': 2,
+      'name': '田中 二郎',
+      'sex': '男',
+      'place': '東京都',
+      'email': 'test2@gmail.com'
+    },
+    {
+      'id': 3,
+      'name': '山田 花子',
+      'sex': '女',
+      'place': '島根県',
+      'email': 'test3@gmail.com'
+    },
+  ];
+
+  export default {
+      data(){
+          return {
+              users: users,
+          }
+      },
+      methods: {
+        deleteUser: function(index){
+          if (confirm('本当によろしいですか？')) {
+            this.users.splice(index, 1);
+          }
+        }
+      }
+  }
+</script>
