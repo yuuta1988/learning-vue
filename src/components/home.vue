@@ -17,6 +17,7 @@
       <tbody>
         <tr v-for="(user,index) in users" v-bind:key="user.id">
           <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
           <td>{{ user.sex }}</td>
           <td>{{ user.place }}</td>
           <td>{{ user.email }}</td>
@@ -58,17 +59,17 @@
   ];
 
   export default {
-      data(){
-          return {
-              users: users,
-          }
-      },
-      methods: {
-        deleteUser: function(index){
-          if (confirm('本当によろしいですか？')) {
-            this.users.splice(index, 1);
-          }
+    data(){
+      return {
+        users: users,
+      }
+    },
+    methods: {
+      deleteUser: function(index){
+        if (confirm('本当によろしいですか？')) {
+          this.users.splice(index, 1);
         }
       }
+    }
   }
 </script>
