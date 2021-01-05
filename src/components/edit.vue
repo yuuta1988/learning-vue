@@ -1,33 +1,32 @@
 <template>
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form>
-          <div class="form-group">
-            <label class="control-label">名前</label>
-            <input class="form-control" type="text">
-          </div>
-          <div class="form-group">
-            <label class="control-label">性別</label>
-            <div class="radio">
-              <label><input type="radio" name="radio">男</label>
-              <label><input type="radio" name="radio">女</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label">出身地</label>
-            <select class="form-control">
-              <option>東京都</option>
-              <option>鳥取県</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="control-label">メールアドレス</label>
-            <input class="form-control" type="email">
-          </div>
-          <button class="btn btn-primary">送信</button>
-        </form>
-      </div>
-    </div>
-  </div>
+  <base-form
+    :name="name"
+    :sex="sex"
+    :selectedPlaceId="selectedPlaceId"
+    :email="email"
+  >
+  </base-form>
 </template>
+
+<script>
+import BaseForm from './BaseForm'
+
+export default {
+  name: 'Edit',
+  data () {
+    return {
+      name: '',
+      sex: '',
+      selectedPlaceId: '',
+      email: '',
+    }
+  },
+  created: function () {
+      this.name = '田中 一郎',
+      this.sex = 1,
+      this.selectedPlaceId = 2,
+      this.email = 'test1@gmail.com'
+  },
+  components: { BaseForm }
+}
+</script>

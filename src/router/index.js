@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import Router from 'vue-router'
-import home from '@/components/home'
-import add from '@/components/add'
-import edit from '@/components/edit'
+import Home from '@/components/Home'
+import Add from '@/components/Add'
+import Edit from '@/components/Edit'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
@@ -16,17 +16,17 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: Home
     },
     {
       path: '/add',
       name: 'add',
-      component: add
+      component: Add
     },
     {
       path: '/edit/:id',
       name: 'edit',
-      component: edit
+      component: Edit
     }
   ]
 })
